@@ -10,6 +10,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'altercation/vim-colors-solarized'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -23,12 +24,37 @@ filetype plugin indent on    " required
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 " see :h vundle for more details or wiki for FAQ
 
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+" edit vimrc file with ,v
+let mapleader = ","
+nmap <leader>v :tabedit $MYVIMRC<CR>
+
 "============================
 " speical chars section
 "============================
 set list
-"   toggle set list
-nmap <leader>l :set list!<CR>
-"   set tab eol appearance symbol
-set listchars=tab:▸\ ,eol:¬
+nmap <leader>l :set list!<CR>   " toggle set list
+set listchars=tab:▸\ ,eol:¬     " set tab eol appearance symbol
 
+"============================
+" appearance
+"============================
+set number relativenumber       " show hybrid line numbers
+augroup numbertoggle            " show abs line number when focus/insert
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
+set guioptions=a              " hide scrollbars/menu/tabs
+
+" enable colorschema
+syntax enable
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+colorscheme solarized
