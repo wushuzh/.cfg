@@ -11,6 +11,12 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/syntastic'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'mattn/emmet-vim'
+Plugin 'pangloss/vim-javascript'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -54,7 +60,11 @@ set guioptions=a              " hide scrollbars/menu/tabs
 syntax enable
 if has('gui_running')
   set background=light
+  set lines=999 columns=999
 else
   set background=dark
 endif
+let g:solarized_visibility = "low"
 colorscheme solarized
+
+let g:ctrlp_map ='<c-p>'
