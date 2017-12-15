@@ -13,10 +13,12 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
+Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'ryanoasis/vim-devicons'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -41,6 +43,7 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 "============================
 " speical chars section
 "============================
+set encoding=utf8
 set list
 nmap <leader>l :set list!<CR>   " toggle set list
 set listchars=tab:▸\ ,eol:¬     " set tab eol appearance symbol
@@ -48,6 +51,8 @@ set listchars=tab:▸\ ,eol:¬     " set tab eol appearance symbol
 "============================
 " appearance
 "============================
+set cursorline
+set cursorcolumn
 set number relativenumber       " show hybrid line numbers
 augroup numbertoggle            " show abs line number when focus/insert
   autocmd!
@@ -60,11 +65,14 @@ set guioptions=a              " hide scrollbars/menu/tabs
 syntax enable
 if has('gui_running')
   set background=light
-  set lines=999 columns=999
+  set lines=999 columns=999                 " set gvim windows max
+  set guifont=DroidSansMono\ Nerd\ Font\ 11 " set nerd font for vim-devicons
+  set guifontwide=Source\ Han\ Sans\ 12     " set Chinese font
 else
   set background=dark
 endif
-let g:solarized_visibility = "low"
+let g:solarized_visibility = "low"          " make tab eol less visible
 colorscheme solarized
 
 let g:ctrlp_map ='<c-p>'
+map <C-n> :NERDTreeToggle<CR>
