@@ -10,10 +10,12 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
 Plugin 'scrooloose/nerdtree'
+Plugin 'xuyuanp/nerdtree-git-plugin'
 Plugin 'scrooloose/syntastic'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mattn/emmet-vim'
@@ -31,6 +33,8 @@ filetype plugin indent on    " required
 " :PluginSearch foo - searches for foo; append `!` to refresh local cache
 " :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
 " see :h vundle for more details or wiki for FAQ
+
+set updatetime=250           " after typing, wait 250ms and let plugin govner
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -76,3 +80,10 @@ colorscheme solarized
 
 let g:ctrlp_map ='<c-p>'
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeQuitOnOpen = 1                 " close nerdtree after open sth
+
+" Javascript
+autocmd Filetype javascript set sw=2 ts=2 expandtab
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
