@@ -21,6 +21,8 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -81,6 +83,8 @@ colorscheme solarized
 let g:ctrlp_map ='<c-p>'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1                 " close nerdtree after open sth
+
+nmap <F8> :TagbarToggle<CR>
 
 " Javascript
 autocmd Filetype javascript set sw=2 ts=2 expandtab
