@@ -11,6 +11,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'tpope/vim-unimpaired'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'kien/ctrlp.vim'
@@ -23,6 +24,7 @@ Plugin 'pangloss/vim-javascript'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-surround'
 Plugin 'majutsushi/tagbar'
+Plugin 'valloric/youcompleteme'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -57,6 +59,7 @@ set listchars=tab:▸\ ,eol:¬     " set tab eol appearance symbol
 "============================
 " appearance
 "============================
+set guicursor=
 set cursorline
 set cursorcolumn
 set number relativenumber       " show hybrid line numbers
@@ -78,6 +81,7 @@ else
   set background=dark
 endif
 let g:solarized_visibility = "low"          " make tab eol less visible
+let g:solarized_termcolors = 256            " no gray background any more
 colorscheme solarized
 
 let g:ctrlp_map ='<c-p>'
