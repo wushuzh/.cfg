@@ -21,8 +21,12 @@ Plugin 'scrooloose/syntastic'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'ap/vim-css-color'
+Plugin 'hail2u/vim-css3-syntax'
 Plugin 'ryanoasis/vim-devicons'
 Plugin 'tpope/vim-surround'
+Plugin 'raimondi/delimitmate'
 Plugin 'majutsushi/tagbar'
 Plugin 'valloric/youcompleteme'
 
@@ -92,6 +96,8 @@ nmap <F8> :TagbarToggle<CR>
 
 " Javascript
 autocmd Filetype javascript set sw=2 ts=2 expandtab
+" make JSX syntax highlight also for file.js
+let g:jsx_ext_required = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
