@@ -101,3 +101,11 @@ let g:jsx_ext_required = 0
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+if has('nvim')
+  " Esc or Ctrl+[ to exit terminal mode
+  " Alt+[ to send Esc to underline app
+  tnoremap <Esc> <C-\><C-n>
+  tnoremap <A-[> <Esc>
+  noremap <leader>c <C-\><C-n>:tab new<CR>:term<CR>
+endif
