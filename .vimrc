@@ -107,5 +107,19 @@ if has('nvim')
   " Alt+[ to send Esc to underline app
   tnoremap <Esc> <C-\><C-n>
   tnoremap <A-[> <Esc>
-  noremap <leader>c <C-\><C-n>:tab new<CR>:term<CR>
+  " Quickly create a new terminal in a new tab
+  tnoremap <leader>c <C-\><C-n>:tab new<CR>:term<CR>
+  noremap <leader>c :tab new<CR>:term<CR>
+  inoremap <leader>c <Esc>:tab new<CR>:term<CR>
+  " Quickly create a new terminal in a vertical split
+  noremap <leader>% :vsp<CR><C-w><C-w>:term<CR>
+  inoremap <leader>% <Esc>:vsp<CR><C-w><C-w>:term<CR>
+  " Quickly create a new terminal in a horizontal split
+  noremap <leader>" :sp<CR><C-w><C-w>:term<CR>
+  inoremap <leader>" <Esc>:sp<CR><C-w><C-w>:term<CR>
+  " Switching between split windows:
+  tnoremap <A-h> <C-\><C-n><C-w>h
+  tnoremap <A-j> <C-\><C-n><C-w>j
+  tnoremap <A-k> <C-\><C-n><C-w>k
+  tnoremap <A-l> <C-\><C-n><C-w>l
 endif
