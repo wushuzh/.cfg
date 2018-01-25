@@ -52,6 +52,9 @@ endif
 let mapleader = ","
 nmap <leader>v :tabedit $MYVIMRC<CR>
 
+" no warning with hidden buffer
+set hidden
+
 "============================
 " speical chars section
 "============================
@@ -67,11 +70,6 @@ set guicursor=
 set cursorline
 set cursorcolumn
 set number relativenumber       " show hybrid line numbers
-augroup numbertoggle            " show abs line number when focus/insert
-  autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
 set guioptions=a              " hide scrollbars/menu/tabs
 
 " enable colorschema
@@ -117,9 +115,29 @@ if has('nvim')
   " Quickly create a new terminal in a horizontal split
   noremap <leader>" :sp<CR><C-w><C-w>:term<CR>
   inoremap <leader>" <Esc>:sp<CR><C-w><C-w>:term<CR>
-  " Switching between split windows:
-  tnoremap <A-h> <C-\><C-n><C-w>h
-  tnoremap <A-j> <C-\><C-n><C-w>j
-  tnoremap <A-k> <C-\><C-n><C-w>k
-  tnoremap <A-l> <C-\><C-n><C-w>l
+  " Switching between split windows by meta key :h meta
+
+  " Terminal mode
+  tnoremap <M-h> <C-\><C-n><C-w>h
+  tnoremap <M-j> <C-\><C-n><C-w>j
+  tnoremap <M-k> <C-\><C-n><C-w>k
+  tnoremap <M-l> <C-\><C-n><C-w>l
+
+  " Insert mode
+  inoremap <M-h> <Esc><C-w>h
+  inoremap <M-j> <Esc><C-w>j
+  inoremap <M-k> <Esc><C-w>k
+  inoremap <M-l> <Esc><C-w>l
+
+  " Visual mode
+  vnoremap <M-h> <Esc><C-w>h
+  vnoremap <M-j> <Esc><C-w>j
+  vnoremap <M-k> <Esc><C-w>k
+  vnoremap <M-l> <Esc><C-w>l
+
+  " Normal mode
+  nnoremap <M-h> <C-w>h
+  nnoremap <M-j> <C-w>j
+  nnoremap <M-k> <C-w>k
+  nnoremap <M-l> <C-w>l
 endif
