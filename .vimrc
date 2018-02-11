@@ -21,6 +21,7 @@ Plugin 'scrooloose/syntastic'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mattn/emmet-vim'
 Plugin 'pangloss/vim-javascript'
+Plugin 'glench/vim-jinja2-syntax'
 Plugin 'mxw/vim-jsx'
 Plugin 'ap/vim-css-color'
 Plugin 'hail2u/vim-css3-syntax'
@@ -29,6 +30,9 @@ Plugin 'tpope/vim-surround'
 Plugin 'raimondi/delimitmate'
 Plugin 'majutsushi/tagbar'
 Plugin 'valloric/youcompleteme'
+Plugin 'junegunn/goyo.vim'
+Plugin 'yggdroot/indentline'
+Plugin 'tpope/vim-sensible'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -63,6 +67,13 @@ set list
 nmap <leader>l :set list!<CR>   " toggle set list
 set listchars=tab:▸\ ,eol:¬     " set tab eol appearance symbol
 
+" force emmet indent using space
+let g:user_emmet_settings = {
+\  'html' : {
+\    'indentation' : '    '
+\  }
+\}
+
 "============================
 " appearance
 "============================
@@ -82,7 +93,7 @@ if has('gui_running')
 else
   set background=dark
 endif
-let g:solarized_visibility = "low"          " make tab eol less visible
+" let g:solarized_visibility = "low"          " make tab eol less visible
 let g:solarized_termcolors = 256            " no gray background any more
 colorscheme solarized
 
@@ -98,6 +109,7 @@ autocmd Filetype javascript set sw=2 ts=2 expandtab
 let g:jsx_ext_required = 0
 
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#tab_nr_type = 1 " show tab number
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 if has('nvim')
