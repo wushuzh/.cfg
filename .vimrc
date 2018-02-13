@@ -1,50 +1,35 @@
-"==========================
-"  Vundle github snippent
-"==========================
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+call plug#begin('~/.vim/plugged')
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+Plug 'VundleVim/Vundle.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-unimpaired'
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'scrooloose/nerdtree'
+Plug 'xuyuanp/nerdtree-git-plugin'
+Plug 'scrooloose/syntastic'
+Plug 'easymotion/vim-easymotion'
+Plug 'mattn/emmet-vim'
+Plug 'pangloss/vim-javascript'
+Plug 'glench/vim-jinja2-syntax'
+Plug 'mxw/vim-jsx'
+Plug 'ap/vim-css-color'
+Plug 'hail2u/vim-css3-syntax'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-surround'
+Plug 'raimondi/delimitmate'
+Plug 'majutsushi/tagbar'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'junegunn/goyo.vim'
+Plug 'yggdroot/indentline'
+Plug 'tpope/vim-sensible'
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'kien/ctrlp.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'xuyuanp/nerdtree-git-plugin'
-Plugin 'scrooloose/syntastic'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'mattn/emmet-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'glench/vim-jinja2-syntax'
-Plugin 'mxw/vim-jsx'
-Plugin 'ap/vim-css-color'
-Plugin 'hail2u/vim-css3-syntax'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'tpope/vim-surround'
-Plugin 'raimondi/delimitmate'
-Plugin 'majutsushi/tagbar'
-Plugin 'valloric/youcompleteme'
-Plugin 'junegunn/goyo.vim'
-Plugin 'yggdroot/indentline'
-Plugin 'tpope/vim-sensible'
+call plug#end()
 
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-" see :h vundle for more details or wiki for FAQ
 
 set updatetime=250           " after typing, wait 250ms and let plugin govner
 
@@ -97,7 +82,6 @@ endif
 let g:solarized_termcolors = 256            " no gray background any more
 colorscheme solarized
 
-let g:ctrlp_map ='<c-p>'
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1                 " close nerdtree after open sth
 
