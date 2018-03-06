@@ -1,7 +1,6 @@
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'VundleVim/Vundle.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-unimpaired'
@@ -21,6 +20,7 @@ Plug 'ap/vim-css-color'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tpope/vim-surround'
+Plug 'junegunn/vim-easy-align'
 Plug 'raimondi/delimitmate'
 Plug 'majutsushi/tagbar'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
@@ -82,6 +82,9 @@ endif
 let g:solarized_termcolors = 256            " no gray background any more
 colorscheme solarized
 
+" debug with conceal setting https://vi.stackexchange.com/a/12534
+let g:indentLine_fileTypeExclude = ["markdown"]
+
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeQuitOnOpen = 1                 " close nerdtree after open sth
 
@@ -95,6 +98,12 @@ let g:jsx_ext_required = 0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#tab_nr_type = 1 " show tab number
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 if has('nvim')
   " Esc or Ctrl+[ to exit terminal mode
